@@ -6,18 +6,17 @@
   outputs = { self, nixpkgs, utils }:
     utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
+          json = builtins.fromJSON (builtins.readFile (./data.json));
       in {
 
         packages.opossumUI = with pkgs;
           let
             pname = "opossum-ui";
-            version = "OpossumUI-2021-09-23";
+            version = json.tag;
             name = "${pname}-${version}";
             src = fetchurl {
-               url =
-                 "https://github.com/opossum-tool/OpossumUI/releases/download/${version}/OpossumUI-0.1.0.AppImage";
-               sha256 = "NRlRoMcwrp0eFB9fHpWFNXUwFXGaGE9u+8FOqLgo5ik=";
-             };
+              inherit (json) url sha512;
+            };
 
             appimageContents = appimageTools.extractType2 { inherit name src; };
 
