@@ -7,9 +7,9 @@ set -x
 outfile="$(readlink -f data.json)"
 
 json="$(curl https://api.github.com/repos/opossum-tool/OpossumUI/releases |
-    jq '.[0] | { tag: .tag_name, url : (.assets[] | select( .name == "OpossumUI-0.1.0.AppImage" ).browser_download_url) }')"
+    jq '.[0] | { tag: .tag_name, url : (.assets[] | select( .name == "OpossumUI-for-linux.AppImage" ).browser_download_url) }')"
 
-sha512="$(nix store prefetch-file --json --hash-type sha512 "$(echo "$json" | jq -r .url)" | jq -r .hash)"
+sha512="$(nix store prefetch-file --json --hash-type sha512 $(echo "$json" | jq -r .url) | jq -r .hash)"
 
 echo "$json" | jq --arg sha512 "$sha512" '. + {sha512: $sha512}' | tee "$outfile"
 
