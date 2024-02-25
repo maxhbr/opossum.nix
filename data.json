@@ -1,5 +1,5 @@
 {
-  "tag": "OpossumUI-2024-01-25",
-  "url": "https://github.com/opossum-tool/OpossumUI/releases/download/OpossumUI-2024-01-25/OpossumUI-for-linux.AppImage",
-  "sha512": "sha512-qJ2WKTbq2SmcArUgosqA2MYD1ansL5mP2ZUhV/TmMb/IuzYDI1yo7Qibm4BO8MgC/4q4NuHO4FFCCfe+24VNgQ=="
+  "tag": "OpossumUI-2.0-beta",
+  "url": "https://github.com/opossum-tool/OpossumUI/releases/download/OpossumUI-2.0-beta/OpossumUI-for-linux.AppImage",
+  "sha512": "sha512-RrocIa7y7EDqwvILQQBRaWAWD5E0tOQuMHjuvC3fXk9gmKU+LrCHzISx/h+w4undZEYf0f0ZGWXE2rSZR4boUg=="
 }
